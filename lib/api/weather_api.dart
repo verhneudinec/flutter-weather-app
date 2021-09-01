@@ -29,7 +29,7 @@ class WeatherApi {
         json.decode(response.body),
       );
     } else {
-      throw Exception('Error  response');
+      throw Exception('Error response');
     }
   }
 }
