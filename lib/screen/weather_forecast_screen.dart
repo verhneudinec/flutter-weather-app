@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_weather_app/api/weather_api.dart';
 import 'package:flutter_weather_app/model/weather_forecast.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_weather_app/widgets/city_view.dart';
 
 class WeatherForecastScreen extends StatefulWidget {
   const WeatherForecastScreen({Key key}) : super(key: key);
@@ -47,9 +48,15 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
               future: forecastObject,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
-                  return Text(
-                    'All good',
-                    style: Theme.of(context).textTheme.headline3,
+                  return Column(
+                    children: [
+                      const SizedBox(
+                        height: 50.0,
+                      ),
+                      CityView(
+                        snapshot: snapshot,
+                      ),
+                    ],
                   );
                 } else {
                   return Center(
